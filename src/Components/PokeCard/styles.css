@@ -68,10 +68,29 @@ h1 {
     margin: 15px 0;
 }
 
-#pokemon-type {
+.element-chip {
+    border: 5px 5px aliceblue solid;
+    height: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     color: #fff;
-    background-color: #EDD53E;
-    width: 70%;
-    border-radius: 10px;
+    width: 32%;
+    border-radius: 20px;
     padding: 5px 10px;
+}
+
+.electric {
+    background-color: yellow;
+}
+
+.poke-elem-img {
+    width: 20px;
+    height: 20px;
+}
+
+#type-description {
+    font-size: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
 }
