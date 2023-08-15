@@ -1,5 +1,6 @@
 import './App.css';
 import PokeCard from './Components/PokeCard/pokecard.js'
+import Pokedex from './Components/PokeDex/pokedex';
 
 const pikachu = {
   "id": 25,
@@ -38,6 +39,7 @@ function App() {
       <PokeCard pokemon={pikachu} />
       <PokeCard pokemon={bulbasaur} />
       <PokeCard pokemon={charmander} />
+      <Pokedex />
     </div>
     </>
   );
