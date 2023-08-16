@@ -36,9 +36,6 @@ function App() {
   return (
     <>
     <div className='card-container'>
-      <PokeCard pokemon={pikachu} />
-      <PokeCard pokemon={bulbasaur} />
-      <PokeCard pokemon={charmander} />
       <Pokedex />
     </div>
     </>
