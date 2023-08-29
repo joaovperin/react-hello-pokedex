@@ -183,3 +183,29 @@ h1 {
     font-weight: bold;
     text-transform: uppercase;
 }
+
+button {
+    margin-bottom: 20px;
+    height: 50px;
+    width: 180px;
+    border-radius: 5px;
+    font-size: 20px;
+}
+
+@keyframes spinner {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  .loading-gif {
+    margin: 150px 0;
+    width: 30px;
+    height: 30px;
+    border: 10px solid #f3f3f3;
+    border-top: 10px solid #383636;
+    border-radius: 50%;
+    animation: spinner 1.0s linear infinite;
+  }

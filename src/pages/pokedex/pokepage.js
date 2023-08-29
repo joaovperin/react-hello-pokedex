@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import './styles.css';
-import { useParams } from "react-router-dom";
+import { Link, useHref, useParams } from "react-router-dom";
 
 function Pokepage () {
     const { nomePokemon } = useParams();
@@ -36,7 +36,7 @@ function Pokepage () {
     return (
         <div className="container">
             <div className="pokedex-container">
-                <h1>Pokédex</h1>
+                <h1>Pokémon</h1>
                 <div className="pokedex-content">
                     {pokemon ? (
                         <>
@@ -68,9 +68,15 @@ function Pokepage () {
                             </div>
                         </>
                     ) : (
-                        <div>Loading...</div>
+                        <div className="loading-container">
+                            <div className="loading-gif">
+                            </div>
+                        </div>
                     )}
                 </div>
+                <Link id="backLink" to={'/'}>
+                    <button>Go Back</button>
+                </Link>
             </div>
         </div>
     )

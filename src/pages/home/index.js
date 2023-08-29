@@ -13,14 +13,21 @@ function Pokedex() {
     }, []);
 
     return (
-        <div>
-            <ul>
-                {nomesPokemon.map((pokemon) => (
-                    <li key={pokemon.name}>
-                        <Link to={`/pokepage/${pokemon.name}`}>{pokemon.name}</ Link>
-                    </li>
-                ))}
-            </ul>
+        <div className="pokeList-container">
+            <div className="pokeList-content">
+                <h1>Pokélist</h1>
+                <div className="nameList">
+                    <ul>
+                        {nomesPokemon.map((pokemon) => (
+                            <li className="pokeLink" key={pokemon.name}>
+                                <Link className="pokeLink" to={`/pokepage/${pokemon.name}`}>
+                                    {pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}
+                                </ Link>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            </div>
         </div>
     )
 }

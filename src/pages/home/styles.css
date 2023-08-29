@@ -1,0 +1,45 @@
+.pokeList-container {
+    display: flex;
+    justify-content: center;
+}
+
+.pokeList-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+    background-color: #CC0000;
+    border: solid 5px black;
+}
+
+.nameList {
+    display: flex;
+    justify-content: center;
+    background-color: #fff;
+    border: 10px solid black;
+    width: 200px;
+}
+
+ul {
+    padding: 0;
+    display: flex;
+    list-style: none;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 25px;
+    text-align: center;
+    margin: 35px 0;
+}
+
+.pokeLink {
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+    transition: .8s;
+}
+
+.pokeLink:hover {
+    color: #CC0000;
+    transform: scale(1.6);
+}
