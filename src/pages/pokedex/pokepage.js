@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import './styles.css';
-import { Link, useHref, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 function Pokepage () {
     const { nomePokemon } = useParams();
