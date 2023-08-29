@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import './styles.css';
 import { useParams } from "react-router-dom";
 
 function Pokepage () {
@@ -14,11 +15,15 @@ function Pokepage () {
 
     const dadosPokemon = () => {
         if (detalhesPokemon) {
+
+            const nomeMaiusculo =
+                detalhesPokemon.name.charAt(0).toUpperCase() + detalhesPokemon.name.slice(1);
+
             return {
-                nome: detalhesPokemon.name,
-                image: '',
+                nome: nomeMaiusculo,
+                imagem: detalhesPokemon.sprites.other["official-artwork"].front_default,
                 id: detalhesPokemon.id,
-                // element: detalhesPokemon.types.map((tipo) => (tipo.types)),
+                element: detalhesPokemon.types.map((tipo) => (tipo.type.name)),
                 height: detalhesPokemon.height,
                 weight: detalhesPokemon.weight
             };
@@ -27,46 +32,48 @@ function Pokepage () {
     }
 
     const pokemon = dadosPokemon();
-
+    
     return (
-        <div>{console.log(pokemon.nome)}</div>
+        <div className="container">
+            <div className="pokedex-container">
+                <h1>Pokédex</h1>
+                <div className="pokedex-content">
+                    {pokemon ? (
+                        <>
+                            {<img id="pokemon-img" alt="" src={pokemon.imagem}></img>}
+                            <span id="pokemon-name">{pokemon.nome}</span>
+                            <div className="element-container">
+                                {pokemon.element.map(type => {
+                                    return (
+                                            <div className={'element-chip ' + type}>
+                                                <img className='poke-elem-img' src={'/types/' + type + '.svg'} alt="" />
+                                                <span className="type-description">{type}</span>
+                                            </div>
+                                    )
+                                })}
+                            </div>
+                            <div className="description-container">
+                                <div className='description'>
+                                    <span>Pokédex nº</span>
+                                    <span>{pokemon.id}</span>
+                                </div>
+                                <div className='description'>
+                                    <span>Height:</span>
+                                    <span>{pokemon.height}</span>
+                                </div>
+                                <div className='description'>
+                                    <span>Weight:</span>
+                                    <span>{pokemon.weight}</span>
+                                </div>
+                            </div>
+                        </>
+                    ) : (
+                        <div>Loading...</div>
+                    )}
+                </div>
+            </div>
+        </div>
     )
-
-    // return (
-    //     <div className="container">
-    //         <div className="pokedex-container">
-    //             <h1>Pokédex</h1>
-    //             <div className="pokedex-content">
-    //                 <img id="pokemon-img" alt="" src={pokemon.image}></img>
-    //                 <span id="pokemon-name">{pokemon.name}</span>
-    //                 <div className="element-container">
-    //                     {pokemon.types.map(type => {
-    //                         return (
-    //                                 <div className={'element-chip ' + type}>
-    //                                     <img className='poke-elem-img' src={'/types/' + type + '.svg'} alt="" />
-    //                                     <span className="type-description">{type}</span>
-    //                                 </div>
-    //                         )
-    //                     })}
-    //                 </div>
-    //                 <div className="description-container">
-    //                     <div className='description'>
-    //                         <span>Pokédex nº</span>
-    //                         <span>{pokemon.id}</span>
-    //                     </div>
-    //                     <div className='description'>
-    //                         <span>Height:</span>
-    //                         <span>{pokemon.height}</span>
-    //                     </div>
-    //                     <div className='description'>
-    //                         <span>Weight:</span>
-    //                         <span>{pokemon.weight}</span>
-    //                     </div>
-    //                 </div>
-    //             </div>
-    //         </div>
-    //     </div>
-    // )
 }
 
 export default Pokepage;
